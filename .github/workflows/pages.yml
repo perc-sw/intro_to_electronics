@@ -1,0 +1,71 @@
+# GitHub Pages: the course hub site (docs/), linking the six board and library sites.
+#   build  - checks that every local link and image in docs/ exists, uploads docs/
+#   deploy - publishes the upload to GitHub Pages (main branch only)
+#
+# Pull requests run build only, so broken links show up before merge.
+# Needs Settings -> Pages -> Source set to "GitHub Actions".
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deployment at a time; a newer push does not cancel one in progress
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04  # pinned; change deliberately
+    permissions:
+      contents: read
+      pages: read  # configure-pages reads the repository's Pages settings
+    steps:
+      - uses: actions/checkout@v7
+
+      # Local href/src targets only; links to the other perc-sw sites are not checked
+      - name: Check local links
+        run: |
+          status=0
+          while IFS= read -r file; do
+            dir=$(dirname "$file")
+            while IFS= read -r ref; do
+              case "$ref" in
+                http://*|https://*|mailto:*|\#*|*'${'*|"") continue ;;  # ${...}: JS template text
+              esac
+              target="${ref%%[#?]*}"
+              if [ ! -e "$dir/$target" ]; then
+                echo "::error file=$file::missing $ref"
+                status=1
+              fi
+            done < <(grep -oE '(href|src)="[^"]*"' "$file" | sed -E 's/^(href|src)="(.*)"$/\2/')
+          done < <(find docs -name '*.html')
+          exit $status
+
+      - uses: actions/configure-pages@v6
+        if: github.event_name != 'pull_request'
+
+      - uses: actions/upload-pages-artifact@v5
+        if: github.event_name != 'pull_request'
+        with:
+          path: docs
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-24.04  # pinned; change deliberately
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

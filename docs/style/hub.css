@@ -1,0 +1,311 @@
+/* ============================================================
+   hub.css
+   U of T Physics — Introduction to Electronics course hub
+   Page-specific styles; loaded after uoft_physics_perc_sw.css,
+   which stays identical to the copy in the board/library repos
+   ============================================================ */
+
+/* ── Track colours (hardware / Arduino / MicroPython) ── */
+:root {
+  --track-hw:       var(--amber);
+  --track-hw-bg:    var(--amber-bg);
+  --track-hw-line:  #EBCB97;
+  --track-ard:      #005F7A;
+  --track-ard-bg:   var(--accent-bg);
+  --track-ard-line: #A8D8E8;
+  --track-mpy:      var(--green);
+  --track-mpy-bg:   var(--green-bg);
+  --track-mpy-line: #A9D9C6;
+}
+
+/* ── Course hero: full-width band under the breadcrumb ── */
+.hub-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--uot-blue) 0%, var(--uot-blue-dark) 100%);
+  color: #fff;
+}
+
+/* Phyduino Pico top copper, mirrored (left), and Pico 2 bottom copper (right), from
+   tools/pcb_to_svg.py; fades out behind the text on the left */
+.hub-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/pcb-copper.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 45%, #000 80%);
+          mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.6) 45%, #000 80%);
+  pointer-events: none;
+}
+
+.hub-hero-inner {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2.75rem;
+}
+
+.hub-eyebrow {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8FD3EA;
+  margin-bottom: 10px;
+}
+
+.hub-hero h1 {
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.hub-hero-lead {
+  max-width: 62ch;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 1.5rem;
+}
+
+.hub-hero .spec-pill {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Page navigation: a row of links under the intro ── */
+.hub-nav {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* same heading style as the .doc-nav sidebar on the library sites */
+.hub-nav-head {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8FD3EA;
+  margin-bottom: 10px;
+}
+
+.hub-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hub-nav a {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--r);
+  padding: 7px 14px;
+  background: rgba(21, 40, 73, 0.35);
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.hub-nav a:hover         { border-color: #fff; background: rgba(255, 255, 255, 0.1); }
+.hub-nav a.primary       { background: var(--uot-cyan); border-color: var(--uot-cyan); }
+.hub-nav a.primary:hover { background: #00698A; }
+
+.hub-nav a:focus-visible {
+  outline: 2px solid #8FD3EA;
+  outline-offset: 2px;
+}
+
+/* nav targets: leave a little room above when jumped to */
+.page-wrap [id] { scroll-margin-top: 1rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.hub-nav) { scroll-behavior: smooth; }
+}
+
+/* ── Lab Summary: numbered steps joined by a line ── */
+.hub-path { position: relative; }
+
+.hub-path::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: var(--border);
+}
+
+.hub-path .step     { position: relative; }
+.hub-path .step-num { background: var(--uot-blue); color: #fff; }
+
+.hub-path .step-body a       { color: #005F7A; text-decoration: none; font-weight: 500; }
+.hub-path .step-body a:hover { text-decoration: underline; }
+
+/* ── Track tags and legend ── */
+.track-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.track {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 1px 7px;
+}
+
+.track.hw  { color: var(--track-hw);  background: var(--track-hw-bg);  border-color: var(--track-hw-line); }
+.track.ard { color: var(--track-ard); background: var(--track-ard-bg); border-color: var(--track-ard-line); }
+.track.mpy { color: var(--track-mpy); background: var(--track-mpy-bg); border-color: var(--track-mpy-line); }
+
+/* ── Board columns: one per board, its sites stacked underneath ──
+   Rows are shared across the columns (subgrid): image, heading, then one row per
+   track, so each Hardware / Arduino / MicroPython card lines up with its neighbour */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 16px;
+}
+
+.board-col {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  grid-template-columns: minmax(0, 1fr);  /* the wide board image must not stretch the column */
+  row-gap: 0;
+}
+
+.board-col-img {
+  display: block;
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+  aspect-ratio: 1712 / 840;
+}
+
+.board-col-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.25s;
+}
+
+.board-col-img:hover img { transform: scale(1.03); }
+
+.board-col-head { padding: 14px 16px 4px; }
+
+.board-col-head h3 {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--uot-blue);
+  letter-spacing: -0.01em;
+}
+
+.board-col-head p {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* one card per course site, with a coloured stripe for its track */
+.site-list {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 8px;
+  padding: 12px 12px 14px;
+}
+
+.site-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border-med);
+  border-radius: var(--r);
+  padding: 10px 12px 11px;
+  transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s;
+}
+
+.site-card.hw  { border-left-color: var(--track-hw); }
+.site-card.ard { border-left-color: var(--track-ard); }
+.site-card.mpy { border-left-color: var(--track-mpy); }
+
+.site-card:hover {
+  box-shadow: 0 3px 12px rgba(21, 40, 73, 0.08);
+  transform: translateY(-1px);
+}
+
+.site-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.site-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-card-title:hover { color: #005F7A; }
+
+.site-card-title::after {
+  content: ' →';
+  color: var(--text-3);
+}
+
+.site-card-desc {
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.45;
+}
+
+/* links sit at the bottom of the card, so they line up across the row */
+.site-card .res-sublinks { margin-top: auto; padding-top: 8px; }
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+
+  .hub-hero-inner { padding: 2rem 1rem 2rem; }
+  .hub-hero h1    { font-size: 28px; }
+  .hub-hero-lead  { font-size: 15px; }
+
+  .hub-nav ul           { display: grid; grid-template-columns: 1fr 1fr; }
+  .hub-nav li:has(.primary) { grid-column: 1 / -1; }
+  .hub-nav li:last-child:nth-child(even) { grid-column: 1 / -1; }  /* would sit alone */
+  .hub-nav a            { display: block; text-align: center; }
+
+  /* columns stack, so nothing to line up across */
+  .board-grid { grid-template-columns: 1fr; row-gap: 16px; }
+  .board-col  { display: flex; flex-direction: column; }
+  .site-list  { display: flex; flex-direction: column; gap: 8px; }
+
+  .hub-path::before { left: 27px; }
+
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="https://www.physics.utoronto.ca/static/utphy_themes/favicon/favicon.ico">
+<title>Introduction to Electronics · U of T Physics</title>
+<meta name="description" content="Course materials for Introduction to Electronics: Analog Shield and Phyduino Pico hardware, Arduino and MicroPython libraries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style/uoft_physics_perc_sw.css">
+<link rel="stylesheet" href="./style/hub.css">
+</head>
+<body>
+
+<!-- ── U of T Physics site header ── -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="https://www.physics.utoronto.ca/physics-at-uoft/services/plrs/">
+      <img class="header-logo-img" src="./images/uoft_physics_plrs_logo.png" alt="University of Toronto Department of Physics">
+    </a>
+    <span class="header-board-title">Introduction to Electronics</span>
+  </div>
+</header>
+
+<!-- breadcrumb -->
+<div class="breadcrumb-bar" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="https://www.physics.utoronto.ca/">Physics</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <a href="https://www.physics.utoronto.ca/physics-at-uoft/services/plrs/electronic-support-services/">Electronic Support Services</a>
+    <span class="sep" aria-hidden="true">›</span>
+    <a href="https://plrs.physics.utoronto.ca/course-listing/">Introduction to Electronics</a>
+  </div>
+</div>
+
+<!-- ── Course hero ── -->
+<section class="hub-hero">
+  <div class="hub-hero-inner">
+    <span class="hub-eyebrow">Course materials</span>
+    <h1>Introduction to Electronics</h1>
+    <p class="hub-hero-lead">
+      Build two boards and program them. You start with the Analog Shield, where you
+      learn through-hole soldering, then move on to surface-mount soldering with the
+      Phyduino Pico, an Arduino Uno-style RP2040 board that the shield plugs onto.
+      You then program the pair in the Arduino IDE or in MicroPython. Everything you
+      need for the course is linked below.
+    </p>
+    <div class="spec-row">
+      <span class="spec-pill">Through-hole &amp; SMT soldering</span>
+      <span class="spec-pill">Analog front end</span>
+      <span class="spec-pill">RP2040</span>
+      <span class="spec-pill">Arduino</span>
+      <span class="spec-pill">MicroPython</span>
+      <span class="spec-pill">Data acquisition</span>
+    </div>
+    <!-- Page navigation: links to this page's sections -->
+    <nav class="hub-nav" aria-label="On this page">
+      <span class="hub-nav-head">On this page</span>
+      <ul>
+        <li><a class="primary" href="#lab-summary">Lab Summary</a></li>
+        <li><a href="#analog-shield">Analog Shield</a></li>
+        <li><a href="#phyduino-pico">Phyduino Pico</a></li>
+        <li><a href="#arduino-downloads">Arduino IDE downloads</a></li>
+        <li><a href="#micropython-downloads">MicroPython downloads</a></li>
+        <li><a href="#repositories">Course Repositories</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- ── Page content ── -->
+<div class="page-wrap">
+
+  <!-- Lab Summary -->
+  <div class="section-head" id="lab-summary"><h2>Lab Summary</h2></div>
+  <ol class="steps hub-path">
+    <li class="step">
+      <span class="step-num">1</span>
+      <div class="step-body">
+        <strong>Assemble the Analog Shield.</strong>
+        Learn through-hole soldering first. The
+        <a href="https://perc-sw.github.io/analog_shield/bom/ibom.html">interactive BoM</a>
+        shows where each part goes.
+      </div>
+    </li>
+    <li class="step">
+      <span class="step-num">2</span>
+      <div class="step-body">
+        <strong>Assemble the Phyduino Pico.</strong>
+        Move on to surface-mount soldering, working from the
+        <a href="https://perc-sw.github.io/phyduino_pico/bom/ibom_student.html">interactive BoM</a>
+        and the <a href="https://perc-sw.github.io/phyduino_pico/pdf/board/phyduino_pico_schematic.pdf">schematic</a>.
+      </div>
+    </li>
+    <li class="step">
+      <span class="step-num">3</span>
+      <div class="step-body">
+        <strong>Choose a language.</strong>
+        <span class="track ard">Arduino</span>: <a href="https://perc-sw.github.io/phyduino_bsp/">set up the Arduino IDE</a>
+        with the Phyduino board package.
+        <span class="track mpy">MicroPython</span>: <a href="https://perc-sw.github.io/phyduino_pico_micropython/tutorials/setup_phyduino_pico.html">set up the Phyduino Pico</a>.
+      </div>
+    </li>
+    <li class="step">
+      <span class="step-num">4</span>
+      <div class="step-body">
+        <strong>Add the Analog Shield library and run the examples.</strong>
+        <a href="https://perc-sw.github.io/analog_shield_lib/">Arduino library</a> or
+        <a href="https://perc-sw.github.io/analog_shield_micropython/">MicroPython library</a>.
+      </div>
+    </li>
+  </ol>
+
+  <!-- Course materials -->
+  <div class="section-head" id="materials"><h2>Course materials</h2></div>
+  <div class="track-legend" aria-label="Legend">
+    <span class="track hw">Hardware</span>
+    <span class="track ard">Arduino</span>
+    <span class="track mpy">MicroPython</span>
+  </div>
+  <div class="board-grid">
+
+    <!-- Analog Shield -->
+    <div class="board-col" id="analog-shield">
+      <a class="board-col-img" href="https://perc-sw.github.io/analog_shield/">
+        <img src="./images/analog_shield.png" alt="Analog Shield board, 3D view">
+      </a>
+      <div class="board-col-head">
+        <h3>Analog Shield</h3>
+        <p>Through-hole shield with an LMT84 temperature sensor, two-stage op-amp amplifier, LEDs, encoder and potentiometer.</p>
+      </div>
+      <div class="site-list">
+        <div class="site-card hw">
+          <div class="site-card-top">
+            <a class="site-card-title" href="https://perc-sw.github.io/analog_shield/">Board &amp; assembly</a>
+            <span class="track hw">Hardware</span>
+          </div>
+          <p class="site-card-desc">Interactive BoM, schematic, PCB drawings, 3D model and datasheets.</p>
+          <div class="res-sublinks">
+            <a class="res-sublink" href="https://perc-sw.github.io/analog_shield/bom/ibom.html">iBoM</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/analog_shield/pdf/board/analog_sheild_schematic.pdf">Schematic</a>
+          </div>
+        </div>
+        <div class="site-card ard">
+          <div class="site-card-top">
+            <a class="site-card-title" href="https://perc-sw.github.io/analog_shield_lib/">Arduino library</a>
+            <span class="track ard">Arduino</span>
+          </div>
+          <p class="site-card-desc">Library and example sketches for the shield on the Phyduino Pico.</p>
+          <div class="res-sublinks">
+            <a class="res-sublink" href="https://perc-sw.github.io/analog_shield_lib/wiki/examples.html">Examples</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/analog_shield_lib/wiki/index.html">API reference</a>
+          </div>
+        </div>
+        <div class="site-card mpy">
+          <div class="site-card-top">
+            <a class="site-card-title" href="https://perc-sw.github.io/analog_shield_micropython/">MicroPython library</a>
+            <span class="track mpy">MicroPython</span>
+          </div>
+          <p class="site-card-desc">One-file library: copy it next to your main.py to use every part of the shield.</p>
+          <div class="res-sublinks">
+            <a class="res-sublink" href="https://perc-sw.github.io/analog_shield_micropython/#setup">Set-up</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/analog_shield_micropython/wiki/examples_phyduino.html">Examples</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/analog_shield_micropython/wiki/index.html">API reference</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phyduino Pico -->
+    <div class="board-col" id="phyduino-pico">
+      <a class="board-col-img" href="https://perc-sw.github.io/phyduino_pico/">
+        <img src="./images/phyduino_pico.png" alt="Phyduino Pico board, top view">
+      </a>
+      <div class="board-col-head">
+        <h3>Phyduino Pico</h3>
+        <p>Arduino Uno-style RP2040 development board with an on-board 12-bit ADC and USB-C power delivery.</p>
+      </div>
+      <div class="site-list">
+        <div class="site-card hw">
+          <div class="site-card-top">
+            <a class="site-card-title" href="https://perc-sw.github.io/phyduino_pico/">Board &amp; assembly</a>
+            <span class="track hw">Hardware</span>
+          </div>
+          <p class="site-card-desc">Interactive BoM, schematic, PCB drawings, 3D model and datasheets.</p>
+          <div class="res-sublinks">
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_pico/bom/ibom_student.html">iBoM</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_pico/pdf/board/phyduino_pico_schematic.pdf">Schematic</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_pico/pdf/board/pinouts.pdf">Pin-out</a>
+          </div>
+        </div>
+        <div class="site-card ard">
+          <div class="site-card-top">
+            <a class="site-card-title" href="https://perc-sw.github.io/phyduino_bsp/">Board support package</a>
+            <span class="track ard">Arduino</span>
+          </div>
+          <p class="site-card-desc">Arduino IDE board package built on the Raspberry Pi pico-sdk.</p>
+          <div class="res-sublinks">
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_bsp/boards/phyduino_pico.html">Board page</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_bsp/wiki/example_sketches.html">Examples</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_bsp/wiki/index.html">API reference</a>
+          </div>
+        </div>
+        <div class="site-card mpy">
+          <div class="site-card-top">
+            <a class="site-card-title" href="https://perc-sw.github.io/phyduino_pico_micropython/">MicroPython library</a>
+            <span class="track mpy">MicroPython</span>
+          </div>
+          <p class="site-card-desc">Board pin names, on-board LED and ADC, and USB-C supply readings, built into the firmware.</p>
+          <div class="res-sublinks">
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_pico_micropython/tutorials/setup_phyduino_pico.html">Set-up</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_pico_micropython/tutorials/install_mpremote.html">mpremote</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_pico_micropython/tutorials/setup_pycharm.html">PyCharm</a>
+            <a class="res-sublink" href="https://perc-sw.github.io/phyduino_pico_micropython/wiki/index.html">API reference</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Arduino IDE downloads -->
+  <div class="section-head" id="arduino-downloads"><h2>Arduino IDE downloads</h2></div>
+  <div class="ds-table-wrap">
+    <table class="ds-table">
+      <tbody>
+        <tr>
+          <td>Arduino IDE</td>
+          <td>Download the Arduino IDE from arduino.cc</td>
+          <td><a class="ds-link" href="https://www.arduino.cc/en/software">Open</a></td>
+        </tr>
+        <tr>
+          <td>Board package</td>
+          <td>Latest release of the Phyduino board package</td>
+          <td><a class="ds-link" href="https://github.com/perc-sw/phyduino_bsp/releases/latest">Open</a></td>
+        </tr>
+        <tr>
+          <td>Analog Shield library</td>
+          <td>Latest release of the Analog Shield library (.ZIP)</td>
+          <td><a class="ds-link" href="https://github.com/perc-sw/analog_shield_lib/releases/latest">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MicroPython downloads -->
+  <div class="section-head" id="micropython-downloads"><h2>MicroPython downloads</h2></div>
+  <div class="ds-table-wrap">
+    <table class="ds-table">
+      <tbody>
+        <tr>
+          <td>Firmware</td>
+          <td>Latest Phyduino Pico firmware (.uf2) with MicroPython and the Phyduino library built in</td>
+          <td><a class="ds-link" href="https://github.com/perc-sw/phyduino_pico_micropython/releases/latest">Open</a></td>
+        </tr>
+        <tr>
+          <td>mpremote</td>
+          <td>Installing mpremote to copy files to the board and run code</td>
+          <td><a class="ds-link" href="https://perc-sw.github.io/phyduino_pico_micropython/tutorials/install_mpremote.html">Open</a></td>
+        </tr>
+        <tr>
+          <td>PyCharm</td>
+          <td>Setting up PyCharm for the Phyduino Pico</td>
+          <td><a class="ds-link" href="https://perc-sw.github.io/phyduino_pico_micropython/tutorials/setup_pycharm.html">Open</a></td>
+        </tr>
+        <tr>
+          <td>Analog Shield library</td>
+          <td>Latest release of the Analog Shield MicroPython library (analog_shield.py)</td>
+          <td><a class="ds-link" href="https://github.com/perc-sw/analog_shield_micropython/releases/latest">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Repo links -->
+  <div class="section-head" id="repositories"><h2>Course Repositories</h2></div>
+  <div class="repo-links">
+    <a class="repo-row" href="https://github.com/perc-sw/analog_shield">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span>
+        <span class="repo-row-label">GitHub · </span>
+        <span class="repo-row-name">Analog Shield</span>
+      </span>
+      <svg class="repo-row-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <a class="repo-row" href="https://github.com/perc-sw/phyduino_pico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span>
+        <span class="repo-row-label">GitHub · </span>
+        <span class="repo-row-name">Phyduino Pico</span>
+      </span>
+      <svg class="repo-row-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <a class="repo-row" href="https://github.com/perc-sw/analog_shield_lib">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span>
+        <span class="repo-row-label">GitHub · </span>
+        <span class="repo-row-name">Analog Shield Arduino library</span>
+      </span>
+      <svg class="repo-row-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <a class="repo-row" href="https://github.com/perc-sw/phyduino_bsp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span>
+        <span class="repo-row-label">GitHub · </span>
+        <span class="repo-row-name">Phyduino board support package</span>
+      </span>
+      <svg class="repo-row-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <a class="repo-row" href="https://github.com/perc-sw/analog_shield_micropython">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span>
+        <span class="repo-row-label">GitHub · </span>
+        <span class="repo-row-name">Analog Shield MicroPython</span>
+      </span>
+      <svg class="repo-row-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <a class="repo-row" href="https://github.com/perc-sw/phyduino_pico_micropython">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span>
+        <span class="repo-row-label">GitHub · </span>
+        <span class="repo-row-name">Phyduino Pico MicroPython</span>
+      </span>
+      <svg class="repo-row-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+
+</div><!-- end page-wrap -->
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="https://www.physics.utoronto.ca">
+    <img class="footer-logo" src="https://www.physics.utoronto.ca/static/utphy_themes/images/Physics-Logo-White.png">
+    </a>
+    <div class="social-media">
+      
+      <ul class="footer-social-media-list">
+        
+        <li title="send email">
+          <a href="mailto:physics.perc@utoronto.ca" aria-label="send email" class="dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+              <path d="M3 7l9 6l9 -6"></path>
+            </svg>
+          </a>
+        </li>
+    
+        <li title="facebook">
+          <a href="https://www.facebook.com/PhysicsUofT/" aria-label="visit facebook page" class="dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+        </li>
+    
+        <li title="X, formerly known as twitter">
+          <a href="https://twitter.com/uoftphysics" aria-label="visit x formerly known as twitter" class="dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+            </svg>
+          </a>
+        </li>
+    
+        <li title="instagram">
+          <a href="https://www.instagram.com/uoftphysics" aria-label="visit instagram" class="dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M16.5 7.5v.01"></path></svg>
+          </a>
+        </li>
+    
+        <li title="youtube">
+          <a href="https://www.youtube.com//channel/UCH2J2YJx3nfN1KygnB1ub4w" aria-label="visit youtube" class="dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z"></path><path d="M10 9l5 3l-5 3z"></path></svg>
+          </a>
+        </li>
+      
+      </ul>
+
+    </div>
+    
+  </div>
+</footer>
+
+</body>
+</html>
