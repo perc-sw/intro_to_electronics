@@ -78,6 +78,28 @@
   border-color: rgba(255, 255, 255, 0.25);
 }
 
+/* ── Course registration link under the tags ── */
+.hub-register {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid var(--uot-cyan);
+  border-radius: var(--r);
+  padding: 7px 14px;
+  background: var(--uot-cyan);
+  transition: background 0.12s;
+}
+
+.hub-register:hover { background: #00698A; }
+
+.hub-register:focus-visible {
+  outline: 2px solid #8FD3EA;
+  outline-offset: 2px;
+}
+
 /* ── Page navigation: a row of links under the intro ── */
 .hub-nav {
   margin-top: 1.75rem;
